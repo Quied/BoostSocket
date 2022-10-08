@@ -9,7 +9,7 @@ std::string GetData(tcp::socket &socket) {
 
 	boost::asio::streambuf Buffer;
 
-	boost::asio::read_until(socket, Buffer, "\n");
+	boost::asio::async_read(socket, Buffer, "\n");
 	std::string data = boost::asio::buffer_cast<const char*>(Buffer.data());
 	return data;
 
@@ -30,6 +30,7 @@ int main(int argc, char* arcv[]) {
 	tcp::acceptor acceptor(service, tcp::endpoint(tcp::v4(), 9999));
 
 	tcp::socket socket(service);
+	
 
 	// waiting on connection
 	acceptor.accept(socket);

@@ -10,7 +10,7 @@ std::string GetData(tcp::socket& socket) {
 
 	boost::asio::streambuf Buffer;
 
-	boost::asio::read_until(socket, Buffer, "\n");
+	boost::asio::async_read(socket, Buffer, "\n");
 	std::string data = boost::asio::buffer_cast<const char*>(Buffer.data());
 	return data;
 
