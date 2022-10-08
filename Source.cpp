@@ -48,7 +48,7 @@ int main(int argc, char* arcv[]) {
 
 		if (response == "exit") break;
 
-		std::cout << name << ": " << response;
+		std::cout << name << ": " << response << std::endl;;
 
 		std::cout << "Server: ";  std::getline(std::cin, reply);
 		SendData(socket, reply);

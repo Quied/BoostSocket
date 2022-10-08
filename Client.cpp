@@ -43,7 +43,10 @@ int main(char* argv[], int argc) {
 		response = GetData(socket);
 		response.pop_back();
 
-		if (response == "exit") break;
+		if (response == "exit") {
+			std::cout << "Connection lost" << std::endl;
+			break;
+		}
 		std::cout << "Server: " << response << std::endl;
 
 		std::cout << name << ": ";
